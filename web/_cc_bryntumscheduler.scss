@@ -1,0 +1,137 @@
+
+
+.bizzomate-scheduler{
+    height: 100%;
+    .b-scheduler_navigation{
+        margin: 0 !important;
+       // width: 100%;
+        //border: 1px solid red;
+        > .mx-layoutgrid{
+            display: contents;
+            > .row{
+                > div{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+
+.mobile{
+    .b-schedulerbase{
+        //border: 1px solid blue;
+        flex: 1 1 auto;
+    }
+    .b-grid-panel-body{
+        //border: 4px solid orange;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .b-grid-body-container{
+        //border: 4px solid purple;
+        height: 100% !important;
+    }
+}
+
+
+
+.b-sch-event-wrap.b-sch-style-rounded>.b-sch-event,
+.b-sch-event-wrap.b-sch-style-rounded>.b-sch-event>.b-sch-event-segments>.b-sch-event{
+    --event-background-l              : 85%;
+    --event-color                     : $cl-text-header;
+    --event-a                         : .6;
+    --event-hover-a                   : 1;
+    --event-hover-l-factor            : .8;
+    --event-selected-hover-l-factor   : .9;
+}
+
+.b-sch-event-content{
+    gap: $sz-spacing-sm;
+    color: $cl-text-header !important;
+}
+
+
+.bizzomate-scheduler{
+    width       : 100%;
+    height      : 100%;
+    // border      : 4px solid red;
+    // position    : relative;
+    // overflow    : auto;
+}
+
+.mauipopup .modal-content .modal-body .maui-layout-page-content > .row > div .col-content{
+    //overflow: hidden;
+}
+
+
+
+.mauipopup{
+    .col-content{
+        //overflow: hidden;
+        // border: 4px solid blue;
+        // display: flex;
+        // flex-direction: column;
+    }
+    .b-virtual-scroller{
+        // position: fixed;
+        // display: block;
+        // top: 0;
+        // height: 100px;
+        // width: 100px;
+        // z-index: 120000000;
+        // background-color: red;
+        // overflow: visible;
+        // border: 1px solid red;
+    }
+    // .b-virtual-width{
+    //     height: 100px;
+    //     background-color: blue;
+    // }
+
+    // // b-virtual-scrollers b-hide-display
+    // .b-hide-display{
+    //     display: block !important;
+    // }
+    .b-virtual-scrollers{
+        // position: fixed;
+        // bottom: 0;
+        // // z-index: 100;
+        // border: 4px solid green;
+        // max-width: 100%;
+
+        // display: none;
+    }
+    .b-virtual-width{
+        //  max-width: 100% !important;
+        //  height: 100px;
+        // max-width: 100%;
+    }
+    
+}
+
+.mauipopup .modal-content .modal-body .maui-layout-page-content > .row > div .col-content{
+    // overflow: hidden;
+}
+
+.b-tooltip{
+    width: 320px;
+    
+    .b-tooltip-body-wrap{
+
+        .b-tooltip-content{
+            background-color: var(--cl-backgroundcolor-onbody);
+            padding: 8px;
+
+            .auto-layout{
+                gap: 4px;
+            }
+
+            .panel.padding{
+                padding: 8px !important;
+            }
+        }
+    }
+}

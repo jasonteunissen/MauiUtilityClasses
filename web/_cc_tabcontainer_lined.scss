@@ -1,0 +1,126 @@
+// item-wrap makes things easier, when adding icons and buttons.
+// this does make the SCSS slightly more comlicated
+
+
+// mixins per style
+@mixin tab-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 2px solid var(--cl-bordercolor-tab);
+}
+
+@mixin tab-item-inactive{
+   width: 160px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-bottom: 2px solid transparent;
+   margin-bottom: -2px;
+   gap: 16px;
+   cursor: pointer;
+   padding: 6px 0;
+   flex-grow: 1; // this makes the items full width.
+}
+
+@mixin tab-item-active{
+  border-color: var(--cl-bordercolor-tab-active);
+  color: var(--cl-color-tab-active);
+}
+
+@mixin tab-item-inactive-hover{
+  border-color: var(--cl-bordercolor-tab-hover);
+  color: var(--cl-color-tab-hover);
+}
+
+
+@mixin tab-text-inactive{
+  color: var(--cl-color-tab);
+  text-decoration: none;
+}
+
+@mixin tab-text-active{
+  color: var(--cl-color-tab-active);
+}
+
+@mixin tab-text-inactive-hover{
+  color: var(--cl-color-tab-hover);
+}
+
+
+
+.tabs, .mx-tabcontainer{
+  .icn-success, .mx-tabcontainer-badge{
+    border-radius      : 24px;
+    width              : 24px;
+    height             : 24px;
+    padding            : 0;
+  }
+  .icn-success{
+    background-color   : $cl-success-50;
+    border             : 2px solid $cl-success-500;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    font-size          : 13px;
+    color              : $cl-header-500;
+  }
+
+  .mx-tabcontainer-badge{
+    font-weight        : 900;
+  }
+}
+
+
+
+// things we dont want in the DOM
+.mx-tabcontainer, .mx-tabcontainer li{
+  display: contents;
+}
+
+
+
+// Outer wrap
+.mx-tabcontainer > ul,
+.tabs{
+  @include tab-wrap
+}
+
+// Inactive item
+.mx-tabcontainer li a,
+.tabs > a,
+.tabs .tab-item{
+  @include tab-item-inactive;
+  &:hover{
+    @include tab-item-inactive-hover;
+    @include tab-text-inactive-hover;
+  }
+}
+
+.mx-tabcontainer li a,
+.tabs > a,
+.tabs .tab-item a{
+  @include tab-text-inactive;
+}
+
+// Active item
+.mx-tabcontainer li.active a{
+  @include tab-item-active;
+  a{
+    @include tab-text-active;
+  }
+}
+
+
+$amountOfLinks: 20;
+@for $i from 1 through $amountOfLinks {
+  .tabs.active-#{$i} > a:nth-child(#{$i}){
+    @include tab-item-active;
+  }
+  .tabs.active-#{$i} .tab-item:nth-child(#{$i}){
+    @include tab-item-active;
+    a{
+      @include tab-text-active;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+
+
+
+/////////////////////////////////
+// Listview - grid items
+/////////////////////////////////
+.grid.mx-listview > ul,
+.grid:not(.mx-listview){
+    display: grid;
+}
+
+$amountOfColumns: 10;
+@for $i from 1 through $amountOfColumns {
+  .grid-#{$i}.mx-listview > ul,
+  .grid-#{$i}.grid:not(.mx-listview){
+    display: grid;
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+
+  // total width (1400) - (combined gaps, - combined padding) / the amount of elements we want to have per row.
+  $min: calc((1400px - (#{$sz-spacing-default} * #{$i}) - (#{$sz-spacing-default} * 2)) / #{$i});
+
+  .grid-fit.grid-#{$i}.mx-listview > ul{
+    grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  }
+
+}
+
+
+/////////////////////////////////
+// Helpers
+/////////////////////////////////
+
+
+// makes all children equal height
+.grid.grid-equalheight.mx-listview > ul > li{
+  display: contents;
+}
+
+//when less than max will center items
+.grid-center.mx-listview > ul,
+.grid-center:not(.mx-listview){
+  justify-content: center;
+}
+
+
+
+
+

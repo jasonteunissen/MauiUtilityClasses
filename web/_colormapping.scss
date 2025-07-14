@@ -1,0 +1,104 @@
+
+
+body{
+    background-color: var(--cl-backgroundcolor-body);
+}
+
+.topnav{
+    background-color: var(--cl-backgroundcolor-topnav);
+}
+
+
+.sidenav{
+    background-color: var(--cl-backgroundcolor-sidenav);
+    border-right-color: var(--cl-bordercolor-sidenav);
+
+    .mx-navbar-item{
+        border-right-color: var(--cl-bordercolor-sidenav);
+        a{
+            color: var(--cl-color-sidenav);
+        }
+        &:hover,
+        &:visited,
+        &:active{
+            background-color: var(--cl-backgroundcolor-sidenav-hover);
+            border-right-color  : var(--cl-bordercolor-sidenav-hover);
+            a{
+                color       : var(--cl-color-sidenav-hover);
+            }
+        }
+    }
+
+    .mx-navbar-item.active{
+        background-color    : var(--cl-backgroundcolor-sidenav-active);
+        border-right-color  : var(--cl-bordercolor-sidenav-active);
+        a{
+            color           : var(--cl-color-sidenav-active);
+        }
+        &:hover,
+        &:visited,
+        &:active{
+            background-color: var(--cl-backgroundcolor-sidenav-hover);
+            a{
+                color: var(--cl-color-sidenav-hover);
+            }
+        }
+    
+    
+    }
+
+    
+}
+
+
+
+.btn-sidenav-toggle{
+    background-color: transparent;
+}
+
+.header, .titlebar{
+    background-color: var(--cl-backgroundcolor-header);
+}
+
+.card, .panel{
+    background-color: var(--cl-backgroundcolor-onbody);
+}
+
+
+
+body{
+    color: var(--cl-text-800);
+}
+input, select, textarea{
+    color: var(--cl-text-800);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.widget-eventTime,
+.widget-timeline-title{
+    color: var(--cl-header-800);
+}
+
+label, .control-label {
+    color: var(--cl-header-800);
+}
+
+// .mx-tabcontainer li.active a{
+//     border-color: var(--cl-backgroundcolor-tab-active);
+//     color: var(--cl-color-tab-active);
+// }
+
+.communication-wrap div.communication-item{
+    background-color: var(--cl-backgroundcolor-onbody);
+
+    .header,
+    .footer{
+        background-color: var(--cl-backgroundcolor-onelement);
+    }
+}
+

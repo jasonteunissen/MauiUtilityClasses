@@ -1,0 +1,36 @@
+
+.btn, .mx-link{ // this is used to help with icon position within buttons
+  display           : inline-flex;
+  justify-content   : center;
+  align-items       : center;
+  gap               : var(--sz-gap-button);
+  font-size         : var(--sz-fontsize-button);
+  line-height       : var(--sz-lineheight-button);
+  border-radius     : var(--sz-borderradius-button);
+}
+
+.btn{
+  padding           : var(--sz-padding-y-button) var(--sz-padding-x-button);
+}
+
+
+.btn-disabled{
+  opacity: 0.5;
+  cursor: default;
+  //pointer-events: none;
+}
+
+//work around to make buttons full width height and clickable when clickable containers are unavailable
+.btn-hack{
+  position: relative;
+  button.btn.mx-button.btn-inverse{
+    //background-color: red;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+

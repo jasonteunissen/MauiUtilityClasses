@@ -1,0 +1,131 @@
+.input-icn {
+    position: relative;
+
+    .context-icn {
+        position: absolute;
+        left: 12px;
+        top: 13px;
+        z-index: 10;
+    }
+
+    input {
+        padding-left: 34px;
+    }
+}
+
+
+
+.input-icn.context-liscenceplate{
+  .context-icn{
+    background-color: #0152A1;
+    position: absolute;
+    height: 35px;
+    width: 22px;
+    margin-top: 2px;
+    margin-left: 2px;
+    border-radius: 3px 0 0 3px;
+    top: 0;
+    left: 0;
+    &:after{
+      content: "";
+      background: url(../../../resources/eurostars.svg);
+      background-size: 14px 14px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 22px;
+      height: 18px;
+      position: absolute;
+    }
+    &:before{
+      content: "NL";
+      color: $white;
+      //background-color: red;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      width: 100%;
+      padding-bottom: 2px;
+      font-size: 12px;
+    }
+  }
+  input{
+    text-transform: uppercase;
+  }
+
+  &.nl{
+    .context-icn{
+      &:before{
+        content: "NL";
+      }
+    }
+    input{
+      border: 2px solid #333 !important;
+      background-color: #E9D153;
+      color: #000;
+    }
+  }
+
+
+  &.be{
+    .context-icn{
+      &:before{
+        content: "B";
+      }
+    }
+    input{
+      border: 2px solid red !important;
+      color: red;
+    }
+  }
+
+  &.fr{
+    .context-icn{
+      &:before{
+        content: "F";
+      }
+    }
+    input{
+      border: 2px solid #333 !important;
+      background-color: #f2f2f2;
+    }
+  }
+
+  &.uk{
+    .context-icn{
+      &:before{
+        content: "GB";
+      }
+    }
+    input{
+      border: 2px solid #333 !important;
+      background-color: #E9D153;
+      color: #000;
+    }
+  }
+}
+
+
+
+
+.input-icn.context-euro{
+  .context-icn{
+    //height: 100%;
+    height: 35px;
+    color: #555;
+    background-color: #eee;
+    border-radius: 3px 0 0 3px;
+    font-weight: 600;
+    left: 1px;
+    top: 1px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before{
+      content: "€";
+      // margin-top: 12px;
+      // position: absolute;
+      // margin-left: -4px;
+    }
+  }
+}

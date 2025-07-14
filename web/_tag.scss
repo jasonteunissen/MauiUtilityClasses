@@ -1,0 +1,138 @@
+$sh-border-default:       1px solid rgba(0, 0, 0, .2) !default;
+$sh-border-boxshadow:     0 0 0 1px rgba(0, 0, 0, .2) !default;
+$white:                 #fff !default;
+
+$cl-brand-active: $brand-primary !default;
+
+$tags:
+//css       bg                border              text
+'primary'   $cl-primary-30    $cl-primary-500     $cl-text-900,
+'success'   $cl-success-30    $cl-success-500     $cl-text-900,
+'warning'   $cl-warning-30    $cl-warning-500     $cl-text-900,
+'danger'    $cl-danger-30     $cl-danger-500      $cl-text-900,
+'info'      $cl-info-30       $cl-info-500        $cl-text-900,
+'active'    $cl-active-30     $cl-active-500      $cl-text-900,
+'inverse'   $cl-inverse-30    $cl-inverse-500     $cl-text-900,
+'default'   $cl-default-30    $cl-default-500     $cl-text-900,
+;
+
+.tag {
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 2px 16px;
+    align-self: flex-start;
+    line-height: 16px;
+    margin: 4px 0;
+}
+
+@each $selector, $bg, $border, $text in $tags {
+    .tag-#{$selector}{
+        background-color:   #{$bg};
+        border-color:       #{$border};
+        color:              #{$text};
+    }
+}
+
+
+
+
+
+
+//status
+.status {
+    font-size: 12px;
+    padding-left: 10px;
+
+    &:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background-color: $gray;
+        position: absolute;
+        margin-left: -10px;
+        margin-top: 4px;
+        border-radius: 1px;
+    }
+
+    &-success {
+        &:before {
+            background-color: $brand-success;
+        }
+    }
+
+    &-warning {
+        &:before {
+            background-color: $brand-warning;
+        }
+    }
+
+    &-danger {
+        &:before {
+            background-color: $brand-danger;
+        }
+    }
+
+    &-info {
+        &:before {
+            background-color: $brand-info;
+        }
+    }
+
+    &-inverse {
+        &:before {
+            background-color: $brand-inverse;
+        }
+    }
+
+    &-default {
+        &:before {
+            background-color: $brand-default;
+        }
+    }
+}
+
+
+
+
+
+.badge, .mx-tabcontainer-badge {
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: $sz-borderradius-buttons;
+    text-align: center;
+
+    &-success {
+        color: var(--cl-success-10);
+        background-color: $brand-success;
+    }
+
+    &-warning {
+        color: var(--cl-warning-10);
+        background-color: $brand-warning;
+    }
+
+    &-danger {
+        color: var(--cl-danger-10);
+        background-color: $brand-danger;
+    }
+    &-info {
+        color: var(--cl-info-10);
+        background-color: $brand-info;
+    }
+
+    &-inverse {
+        color: var(--cl-inverse-10);
+        background-color: $brand-inverse;
+    }
+
+    &-default {
+        color: $font-color-default;
+        background-color: $white;
+        box-shadow: $sh-border-boxshadow;
+    }
+}
+
+.mx-tabcontainer-badge{
+    color: $white;
+    background-color: $brand-primary;
+}

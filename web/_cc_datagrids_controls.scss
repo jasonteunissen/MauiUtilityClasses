@@ -1,0 +1,79 @@
+
+// this sets the order of items so that pagination is under the content
+.mx-grid{
+    display: flex;
+    flex-direction: column;
+    gap: $sz-spacing;
+
+    .mx-grid-toolbar{
+        order: 1;
+    }
+    .mx-grid-content{
+        order: 2;
+    }
+    .mx-grid-pagingbar{
+        order: 3;
+    }
+
+    .mx-grid-controlbar{
+        display: contents;
+    }
+}
+
+
+//searchbar
+.mx-grid-searchbar{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: calc(#{$sz-spacing-default} * 0.25);
+    padding-bottom: calc(#{$sz-spacing-default} * 0.25);
+}
+
+.mx-grid-search-inputs{
+    display: contents;
+}
+
+.mx-grid-search-controls{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(#{$sz-spacing-sm} * 1);
+
+    .btn{
+        align-self: flex-start;
+        align-self: end;
+    }
+}
+
+
+.mx-grid-toolbar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(#{$sz-spacing-sm} * 1);
+}
+
+// pagination style
+.mx-grid-pagingbar, .pagination-bar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    margin: 0;
+
+    .btn, .pagination-button{
+        border: none;
+        padding: $sz-spacing-sm;
+        color: $cl-clickable-500;
+        background-color: transparent;
+        min-width: 32px;
+        &:hover{
+            color: $cl-clickable-900;
+            background-color: $cl-clickable-50;
+        }
+        &:disabled{
+            opacity: 0.25;
+        }
+    }
+    .paging-status, .mx-grid-paging-status{
+        padding: $sz-spacing-sm;
+    }
+}

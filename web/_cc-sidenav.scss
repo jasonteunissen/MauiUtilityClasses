@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////
+///  Company Core Modifier
+////////////////////////////////////////////////////
+
+.mauilayout .level-1 {
+    flex-direction: row;
+}
+
+.topnav {
+    min-width: 300px;
+    overflow: hidden;
+    flex-direction: column;
+
+    .topnav-left,
+    .topnav-right {
+        flex-direction: column;
+        width: 100%;
+
+        .navbar {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .brand-logo-square,
+    .brand-logo-horizontal {
+        display: none;
+    }
+}
+
+.topnav{
+    .dropdown{
+      width: 100%;
+      .dropdown-button{
+  
+        &:hover{
+          background-color: transparent;
+        }
+  
+      }
+    }
+  }
+
+  .topnav{
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+  }

@@ -1,0 +1,10 @@
+
+//some helper classes to help with responsiveness
+
+
+@media (max-width: $sz-breakpoint-desktop) {
+    .scr-sm-col-left{ // when scr = small, then make this col left.
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}

@@ -1,0 +1,57 @@
+
+
+
+.card, .panel{
+  padding             : 0;
+  // border-radius       : $sz-borderradius-default;
+  // background-color    : $cl-bg-elements; // moved to color mapping
+  overflow            : hidden;
+  flex-shrink         : 0;
+
+  &.padding{
+    padding           : $sz-spacing;
+  }
+  .selected &{
+    background-color: $cl-active-50;
+  }
+}
+
+.card{
+  cursor              : pointer;
+  border-radius       : var(--sz-borderradius-card);
+  &:hover{
+    box-shadow        : $sh-boxshadow-hover;
+  }
+}
+
+.panel{
+  border-radius       : var(--sz-borderradius-panel);
+}
+
+.card, .panel{
+  .card, .panel{
+    background-color  : $cl-bg-elements-secondary;
+  }
+}
+
+
+
+.card, .panel{
+  .img-wrap{
+      height: 100px;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      img{
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+      }
+  }
+}
+
+
+.page{ // used to preview something that could be printed
+  background-color: $cl-bg-elements;
+  box-shadow: $sh-boxshadow;
+}

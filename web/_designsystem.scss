@@ -1,0 +1,145 @@
+
+  .shape{
+    background-color: white;
+  }
+
+
+
+  // makes icons look purdy
+// works well in listview if you config the icons to work with an iconfont.
+.lsg-iconwrap{ //dont use this outside of the LSG
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  text-align:       center;
+  border:           $sh-border-default;
+  padding:          $sz-spacing-default;
+  gap:              $sz-spacing-default;
+  border-radius:    $sz-borderradius-buttons;
+
+  >div:first-of-type{
+    font-size: calc(#{$sz-text-size-default} * 2);
+  }
+}
+
+
+//pantones
+.pantone-wrap{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  > .row{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+  }
+}
+
+.pantone-item{
+  box-shadow: $sh-boxshadow;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+  background-color: var(--cl-backgroundcolor-onbody);
+
+  &:hover{
+    transform: scale(1.4);
+    box-shadow: $sh-boxshadow-large;
+  }
+  
+
+  .pantone-color{
+    height: 100px;
+  }
+
+  .pantone-value, .pantone-text{
+    font-size: 12px;
+    line-height: 16px;
+    display: block;
+  }
+
+
+  .pantone-value{
+    padding: 4px 4px 0;
+    font-weight: 600;
+  }
+  .pantone-text{
+    padding: 0px 4px 4px;
+  }
+}
+
+
+.pantone-wave{
+  .pantone-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    > .row{
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 0px;
+    }
+  }
+
+  .pantone-item{
+    box-shadow: none;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    background-color: var(--cl-backgroundcolor-onbody);
+
+    &:hover{
+      transform: scale(1);
+      box-shadow: none;
+    }
+    
+
+    .pantone-color{
+      height: 50px;
+    }
+
+    .pantone-value, .pantone-text{
+      display: none;
+    }
+
+
+    .pantone-value{
+      padding: 4px 4px 0;
+      font-weight: 600;
+    }
+    .pantone-text{
+      padding: 0px 4px 4px;
+    }
+  }
+}
+
+// }
+
+.color-grayscale:after{
+  content: '';
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: grayscale(100%);
+  top: 0;
+  pointer-events: none
+}
+
+
+
+
+//code
+.code{
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+
+  padding: $sz-spacing;
+  color: white;
+  background-color: $cl-text-900;
+  border-radius: 4px;
+
+  div{
+    padding-left: 32px;
+  }
+}

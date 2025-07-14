@@ -1,0 +1,333 @@
+//Variables
+$sz-spacing-default: 16px !default;
+
+
+
+.gap{
+  gap: $sz-spacing-default;
+}
+
+.gap-sm{
+  gap: $sz-spacing-sm;
+}
+
+.gap.mx-listview > ul,
+.gap:not(.mx-listview){
+  gap: $sz-spacing-default;
+}
+
+table.gap{
+  td{
+    padding: 0 $sz-spacing-xxs;
+  }
+  td:first-child{
+    padding-left: 0;
+  }
+  td:last-child{
+    padding-right: 0;
+  }
+}
+
+
+// auto-layout
+.auto-layout.mx-listview > ul,
+.auto-layout:not(.mx-listview){
+  display           : flex;
+  flex-direction    : column;
+  gap               : $sz-spacing-default;
+}
+
+////////////////////////////////////////////////////
+//////// Row Helpers
+////////////////////////////////////////////////////
+
+// 1st modifier
+
+.row-split {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.row-left,
+.row-center,
+.row-right {
+  align-items: flex-start !important;
+  .form-group{
+    width: auto; //otherwise formgroup gets 100% from itself, and pushes things away
+  }
+}
+
+// 2nd modifier
+.row-top {
+  align-items: flex-start !important;
+}
+
+.row-mid {
+  align-items: center !important;
+}
+
+.row-baseline {
+  align-items: baseline !important;
+}
+
+.row-bottom {
+  align-items: flex-end !important;
+}
+
+
+
+////////////////////////////////////////////////////
+//////// Col Helpers
+////////////////////////////////////////////////////
+
+//2nd modifier
+.col-split {
+  justify-content: space-between !important;
+}
+
+.col-top {
+  justify-content: flex-start !important;
+}
+
+.col-mid {
+  justify-content: center !important;
+}
+
+.col-bottom {
+  justify-content: flex-end !important;
+}
+
+
+////////////////////////////////////////////////////
+//////// On other Elements
+////////////////////////////////////////////////////
+
+.mx-layoutgrid.row-bottom{
+  > .row > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+table.row-bottom{
+  > tbody > tr > td{
+    vertical-align: bottom;
+  }
+}
+
+table.row-mid{
+  > tbody > tr > td{
+    vertical-align: middle;
+    input{
+      margin: 0 !important;
+    }
+  }
+}
+
+table.row-top{
+  > tbody > tr > td{
+    vertical-align: top;
+  }
+}
+
+
+
+////////////////////////////////////////////////////
+//////// Exceptions
+////////////////////////////////////////////////////
+
+
+
+//fixes icons from growing
+.icn-context,
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+//makes checkboxes not stretch far for elements after it (such as info icon)
+.row-left {
+  .label-after { 
+    flex-grow: 0;
+  }
+}
+
+
+//this makes sure containers have full width, which is what you usually want.
+.row-left,
+.col-left,
+.row-split {
+  width: 100%; 
+  > .row-left,
+  > .col-left,
+  > .row-split{
+    width: auto;
+  }
+}
+
+.col-left{
+  > .row-split{
+    width: 100%; 
+  }
+}
+
+.row-left {
+  text-align: left;
+}
+
+.row-center {
+  text-align: center;
+}
+
+
+
+
+.row-split {
+  >div {//maybe make this first of type
+    flex-grow: 0;
+  }
+
+  >div:first-of-type {
+    flex-grow: 1;
+  }
+}
+
+
+.col-center {//this might break things
+  >* {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+//////////////////////////
+// Icon Text Pair
+//////////////////////////
+.icontextpair, .widget-accordion-group-header .icontextpair{
+  display           : flex;
+  flex-direction    : row;
+  align-items       : center;
+  justify-content   : flex-start;
+  gap               : $sz-spacing-sm;
+}
+
+
+
+//////////////////////////
+// Display Contents
+//////////////////////////
+
+.mx-dataview,
+.mx-placeholder,
+.mx-dataview-content {
+  display: contents;
+}
+
+
+
+.displaycontents{
+  &.mx-listview ,.mx-listview{
+      display: contents;
+      >ul{
+          display: contents;
+          >li{
+              display: contents;
+          }
+      }
+  }
+}
+
+.listview-inline{
+  &.mx-listview ,.mx-listview{
+      >ul{
+          display: contents;
+          >li{
+              display: contents;
+          }
+      }
+  }
+}
+
+.displaycontents, .displaycontents.mx-dataview{
+  display: contents;
+  .mx-dataview-content{
+      display: contents;
+  }
+}
+
+
+//////////////////////////
+// on other elements
+//////////////////////////
+
+.row-center.mx-listview{
+  >ul{
+    display: contents;
+    >li{
+      display: contents;
+    }
+  }
+}
+
+
+.pull-left, .pull-right{
+  float: none !important;
+}
+
+
+.row-mid.mx-layoutgrid{
+  > .row{
+    > div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+////////////////////////////////////////////////////
+// www.jasonteunissen.nl 
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+// Grids
+////////////////////////////////////////////////////
+
+ // create a container, with this class, in order to have a checkbox that affects the input
+ // useful when you have a checkbox with editible text inside of it.
+.row-input{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: $sz-spacing-sm;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "label      label"
+    "checkbox   input";
+  
+  label{
+    grid-area: label;
+  }
+  .mx-checkbox{
+    grid-area: checkbox;
+  }
+  .mx-textbox{
+    grid-area: input;
+  }
+}

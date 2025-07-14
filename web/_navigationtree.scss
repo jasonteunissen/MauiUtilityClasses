@@ -1,0 +1,114 @@
+//Tokens
+
+$cl-backgroundcolor-navigationtree          : var(--cl-backgroundcolor-navigationtree, --cl-default-10) !default;
+$cl-backgroundcolor-navigationtree-hover    : var(--cl-backgroundcolor-navigationtree-hover,--cl-primary-30) !default;
+$cl-backgroundcolor-navigationtree-active   : var(--cl-backgroundcolor-navigationtree-active,--cl-primary-500) !default;
+
+$cl-color-navigationtree                    : var(--cl-color-navigationtree, --cl-text-500) !default;
+$cl-color-navigationtree-hover              : var(--cl-color-navigationtree-hover, --cl-text-500) !default;
+$cl-color-navigationtree-active             : var(--cl-color-navigationtree-active, --cl-default-10) !default;
+
+
+.page-content{
+  .mx-navigationtree{
+      background-color            : transparent;
+      .navbar-inner > ul > li > a {
+          background-color        : $cl-backgroundcolor-navigationtree;
+          color                   : $cl-color-navigationtree;
+          font-size               : $sz-text-size-default;
+          //line-height:    calc(#{$sz-text-lineheight-default} *2);
+          line-height             : $sz-text-lineheight-default;
+          border-bottom           : $sh-border-default;
+          transition: all 0.3s ease-in-out;
+          &:hover{
+            background-color      : $cl-backgroundcolor-navigationtree-hover;
+          }
+          
+          &.active{
+              color               : $cl-color-navigationtree-active;
+              background-color    : $cl-backgroundcolor-navigationtree-active;
+          }
+      }
+  }
+}
+
+.mx-navigationtree li.mx-navigationtree-has-items > ul{
+  background-color        : transparent;
+  li{
+    padding-left          : $sz-spacing-default;
+  }
+  li a{
+    transition: all 0.3s ease-in-out;
+    background-color      : $cl-backgroundcolor-navigationtree;
+    color                 : $cl-color-navigationtree;
+    font-size             : $sz-text-size-default;
+    //line-height:    calc(#{$sz-text-lineheight-default} * 2);
+    line-height           : $sz-text-lineheight-default;
+    border-bottom         : $sh-border-default;
+    &:hover{
+      background-color    : $cl-backgroundcolor-navigationtree-hover;
+    }
+    &.active{
+      color               : $cl-color-navigationtree-active;
+      background-color    : $cl-backgroundcolor-navigationtree-active;
+    }
+  }
+}
+
+.mx-navigationtree ul li ul{
+  margin: 0;
+  padding: 0;
+}
+
+.mx-navigationtree ul li ul li{
+  margin: 0;
+  padding: 0;
+}
+
+.mx-navigationtree a {
+  display: block;
+  padding: calc(#{$sz-text-lineheight-default} * 0.5) $sz-spacing;
+  color: #777;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+
+
+
+.mx-navigationtree.navigationtree-flat{ // removes the levels, and treats the top level as headers.
+  .navbar-inner{
+    
+    > ul{
+      display: flex;
+      flex-direction: column;
+      gap: $sz-spacing-xl;
+      > li.mx-navigationtree-has-items{
+        cursor: default;
+        > a{
+          font-size: $sz-text-size-h3;
+          font-weight: 600;
+          color: $cl-header-500;
+          cursor: default;
+          &:hover{
+            background-color: inherit;
+          }
+
+
+          .caret{
+            display: none;
+          }
+        }
+        > ul{
+          display: flex;
+          flex-direction: column;
+          > li{
+            padding-left: 0;
+            
+
+          }
+        }
+      }
+    }
+  }
+}

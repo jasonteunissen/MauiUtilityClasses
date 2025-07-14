@@ -1,0 +1,172 @@
+// this is a great starting point.
+
+
+$cl-bg-striped: rgba(0, 0, 0, 0.05) !default;
+
+
+.mx-datagrid table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    margin-bottom: 0;
+}
+
+
+
+.mx-datagrid th,
+.mx-datagrid td {
+    padding: calc(#{$sz-spacing-default} * 0.25);
+    vertical-align: bottom;
+    border: $sh-border-default;
+}
+
+.mx-datagrid th{
+    border-bottom: none;
+}
+
+// top section
+
+//searchbar
+.mx-grid-searchbar{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: calc(#{$sz-spacing-default} * 0.25);
+    padding-bottom: calc(#{$sz-spacing-default} * 0.25);
+}
+
+.mx-grid-search-inputs{
+    display: contents;
+}
+
+.mx-grid-search-controls{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(#{$sz-spacing-default} * 0.25);
+
+    .btn{
+        align-self: flex-start;
+        align-self: end;
+    }
+}
+
+
+
+.mx-grid-controlbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: calc(#{$sz-spacing-default} * 0.25);
+}
+
+.mx-grid-toolbar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(#{$sz-spacing-default} * 0.25);
+}
+
+.mx-grid-pagingbar{
+    display: flex;
+    gap: calc(#{$sz-spacing-default} * 0.25);
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+.mx-datagrid th {
+    position: relative; /* Required for the positioning of the column resizers */
+}
+.mx-datagrid-column-resizer {
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+
+.mx-datagrid{ 
+    table{ 
+        tbody{
+            tr{
+
+                &.selected td{
+                    background-color: $cl-bg-semantic-active;
+                    color: $white;
+                }
+                &.selected:hover td{
+                    background-color: $cl-bg-semantic-active-700;
+                    color: $white;
+                }
+                
+                td{
+                    background-color: inherit;
+                }
+                &:hover td{
+                    background-color: $cl-bg-semantic-active-700;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.datagrid-pagination-bottom{
+    display: flex;
+    flex-direction: column-reverse
+}
+
+// Set the same background color for striped listviews and datagrids
+.datagrid-striped.mx-datagrid table tbody tr:nth-child(odd) td {
+    background-color: $cl-bg-striped;
+  }
+
+// Remove datagrid-striped borders to look list the listview-striped
+.datagrid-striped.mx-datagrid table tr td {
+    border-bottom: none;
+  }
+
+  // Don't show grid contents (useful for keeping the export button)
+.datagrid-hide-content .mx-grid-content {
+    display: none;
+  }
+
+  .datagrid-buttonsonly{
+    .mx-grid-content, .mx-grid-searchbar, .mx-grid-pagingbar {
+        display: none;
+    }
+    .mx-grid-controlbar, .mx-grid-toolbar{
+        display: contents;
+    }
+  } 
+
+  .mx-datagrid tr {
+    cursor: pointer;
+}
+
+
+    /* head */
+    // .mx-datagrid th {
+    //     position: relative; /* Required for the positioning of the column resizers */
+    //     border-bottom-width: 2px;
+    // }
+    // .mx-datagrid-head-caption {
+    //     overflow: hidden;
+    //     white-space: nowrap;
+    // }
+    // .mx-datagrid-sort-icon {
+    //     float: right;
+    //     padding-left: 5px;
+    // }
+    // [dir="rtl"] .mx-datagrid-sort-icon {
+    //     float: left;
+    //     padding: 0 5px 0 0;
+    // }
+
+    // [dir="rtl"] .mx-datagrid-column-resizer {
+    //     left: auto;
+    //     right: -6px;
+    // }

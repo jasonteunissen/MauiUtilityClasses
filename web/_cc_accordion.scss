@@ -1,0 +1,307 @@
+// // https://github.com/mendix/web-widgets/blob/main/packages/pluggableWidgets/accordion-web/src/ui/accordion-main.scss
+
+
+// $sz-text-size-accordion:        $sz-text-size-h4;
+// $sz-text-lineheight-accordion:  $sz-text-lineheight-h4;
+// $sz-text-fontweight-accordion:  600;
+// $sz-spacing-accordion-header:   $sz-spacing;
+// $sz-spacing-accordion-body:     $sz-spacing;
+
+// $cl-accordion-bg-wrap:          inherit;
+// $cl-accordion-bg-header:        inherit;
+// $cl-accordion-bg-header-active: inherit;
+// $cl-accordion-text:             $cl-text-header;
+// $cl-accordion-active:           $cl-primary;
+// $cl-accordion-icon:             $cl-text-header;
+
+// $sh-accordion-border-bottom:    $sh-border-default;
+
+
+////////////// groupbox
+
+
+
+
+///////////////////
+
+
+.widget-accordion{ //this is the group if there are multiple
+    display: contents;
+}
+
+
+.widget-accordion-group{
+    background-color: var(--cl-backgroundcolor-accordion);
+    border          : 1px solid var(--cl-bordercolor-accordion);
+    border-radius   : var(--sz-borderradius-accordion);
+    overflow        : hidden;
+}
+
+.mx-groupbox-header,
+.widget-accordion-group-header{
+    background-color: var(--cl-backgroundcolor-accordion-header);
+    &:hover,
+    &:focus,
+    &:active{
+        background-color: var(--cl-backgroundcolor-accordion-header-hover);
+    }
+}
+
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:active,
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:focus,
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover{
+    background-color: var(--cl-backgroundcolor-accordion-header-hover);
+}
+
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button .widget-accordion-group-header-button-icon,
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:active .widget-accordion-group-header-button-icon,
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:focus .widget-accordion-group-header-button-icon,
+.widget-accordion-group>.widget-accordion-group-header>.widget-accordion-group-header-button.widget-accordion-group-header-button-clickable:hover .widget-accordion-group-header-button-icon{
+    fill: var(--cl-text-900);
+}
+
+.widget-accordion-group-header .icn-wrap{
+    min-height: var(--sz-spacing-lg);
+    max-height: var(--sz-spacing-lg);
+    min-width : var(--sz-spacing-lg);
+    max-width : var(--sz-spacing-lg);
+
+    .icn-context{
+        font-size: 12px;
+        color: #fff;
+    }
+}
+
+// .mx-groupbox {
+//     margin-bottom: 0;
+//     border-bottom       : $sh-accordion-border-bottom;
+// }
+// .mx-groupbox-header {
+//     margin        : 0;
+//     padding       : $sz-spacing-accordion-header;
+//     color         : $cl-accordion-text;
+//    // background    : $cl-accordion-bg-header;
+//     font-size     : $sz-text-size-accordion;
+//     line-height   : $sz-text-lineheight-accordion;
+//     border-radius : 0;
+
+//     &:hover,
+//     &:focus,
+//     &:active{
+//         color: $cl-accordion-active;
+//         //background-color: $cl-accordion-bg-header-active;
+//     }
+// }
+// .mx-groupbox-collapsible > .mx-groupbox-header {
+//     cursor: pointer;
+// }
+// .mx-groupbox.collapsed > .mx-groupbox-header {
+//     border-radius: 0px;
+// }
+// .mx-groupbox-body {
+//     padding: $sz-spacing-accordion-body;
+//     border: none;
+//     border-radius: 0px;
+// }
+// .mx-groupbox.collapsed > .mx-groupbox-body {
+//     display: none;
+// }
+// .mx-groupbox-header + .mx-groupbox-body {
+//     border-top: none;
+//     border-radius: 0;
+// }
+// .mx-groupbox-collapse-icon {
+//     float: right;
+// }
+// [dir="rtl"] .mx-groupbox-collapse-icon {
+//     float: left;
+// }
+
+
+
+
+
+
+// ////////////////////////////////////////////////////////
+// /// accordion
+
+// $background-color: #ffffff;
+// $border-color: #ced0d3;
+// $header-background-color-hover: #f8f8f8;
+// $header-color: $cl-header-500;
+// $header-color-hover: $cl-primary-500;
+
+// .widget-accordion{
+//     display: flex;
+//     flex-direction: column;
+//     gap: $sz-spacing-default;
+// }
+
+// .widget-accordion-group {
+//     background-color: $background-color;
+//     border-radius: $sz-borderradius-default;
+    
+//     border: none;
+//     overflow: hidden;
+//     box-shadow: $sh-boxshadow-300;
+//     transition: box-shadow ease-in-out 0.3s;
+
+//     &.widget-accordion-group-collapsed {
+//         box-shadow: $sh-boxshadow-500;
+
+//         &:hover{
+//             box-shadow: $sh-boxshadow-700;
+//         }
+
+//         > .widget-accordion-group-header > .widget-accordion-group-header-button,
+//         > .widget-accordion-group-header > .widget-accordion-group-header-button.widget-accordion-group-header-button-icon-left {
+//             .widget-accordion-group-header-button-icon {
+//                 transform: none;
+//             }
+//         }
+
+//         > .widget-accordion-group-content-wrapper {
+//             display: none;
+//         }
+//     }
+
+//     &:not(.widget-accordion-group-collapsed) {
+//         .widget-accordion-group-header-button-icon-animate {
+//             transform: rotate(-180deg);
+//         }
+//     }
+//     &.widget-accordion-group-collapsing {
+//         > .widget-accordion-group-header > .widget-accordion-group-header-button,
+//         > .widget-accordion-group-header
+//             > .widget-accordion-group-header-button.widget-accordion-group-header-button-icon-left {
+//             .widget-accordion-group-header-button-icon {
+//                 transform: none;
+//             }
+//         }
+//     }
+
+//     &.widget-accordion-group-expanding,
+//     &.widget-accordion-group-collapsing {
+//         > .widget-accordion-group-content-wrapper {
+//             height: 0;
+//             overflow: hidden;
+//             transition: height 0.2s ease 50ms;
+//         }
+//     }
+
+//     > .widget-accordion-group-header > .widget-accordion-group-header-button {
+//         padding: 16px;
+//         display: flex;
+//         align-items: center;
+//         position: relative;
+        
+//         transition: box-shadow 0.2s ease 0ms;
+
+        
+
+//         > :first-child {
+//             flex: 1;
+//         }
+
+//         > :is(h1, h2, h3, h4, h5, h6) {
+//             font-size: 18px;
+//             font-weight: 600;
+//         }
+
+//         > :is(h1, h2, h3, h4, h5, h6, p) {
+//             color: $header-color;
+//             margin-bottom: 0;
+//         }
+
+//         > span {
+//             color: $header-color;
+//         }
+//         > .badge{
+//             color: $cl-white;
+//         }
+
+//         .widget-accordion-group-header-button-icon {
+//             fill: $header-color;
+
+//             &.widget-accordion-group-header-button-icon-animate {
+//                 transition: transform 0.2s ease-in-out 50ms;
+//             }
+//         }
+
+//         &.widget-accordion-group-header-button-icon-right {
+//             .widget-accordion-group-header-button-icon {
+//                 margin-left: 16px;
+//             }
+//         }
+
+//         &.widget-accordion-group-header-button-clickable {
+//             &:hover,
+//             &:focus,
+//             &:active {
+//                 //background-color: $header-background-color-hover;
+//                 background-color: transparent;
+//                 //box-shadow: $sh-boxshadow-700;
+//                 cursor: pointer;
+
+
+//                 > :is(h1, h2, h3, h4, h5, h6, p, span) {
+//                    // color: $header-color-hover;
+//                    color: $cl-accordion-text;
+//                 }
+
+//                 * {
+//                     cursor: pointer;
+//                 }
+
+//                 .widget-accordion-group-header-button-icon {
+//                     fill: $header-color-hover;
+//                 }
+//             }
+
+//             &:focus {
+//                 outline: none;
+//             }
+
+//             &:focus-visible {
+//                 z-index: 3;
+//                 box-shadow: 0 0 0 2px $header-color-hover;
+//             }
+//         }
+
+//         &.widget-accordion-group-header-button-icon-left {
+//             flex-direction: row-reverse;
+
+//             .widget-accordion-group-header-button-icon {
+//                 margin-right: 16px;
+//             }
+//         }
+//     }
+
+//     > .widget-accordion-group-content-wrapper > .widget-accordion-group-content {
+//         padding: $sz-spacing;
+//         overflow: hidden;
+//         display: flex;
+//         flex-direction: column;
+//         gap: $sz-spacing-lg;
+//     }
+// }
+
+// .widget-accordion-preview {
+//     .widget-accordion-group {
+//         .widget-accordion-group-header-button {
+//             > div > :is(h1, h2, h3, h4, h5, h6) {
+//                 font-size: 18px;
+//                 font-weight: 600;
+//             }
+
+//             > div > :is(h1, h2, h3, h4, h5, h6, p) {
+//                 color: $header-color;
+//                 margin-bottom: 0;
+//             }
+
+//             > div > span {
+//                 color: $header-color;
+//             }
+//         }
+//     }
+// }

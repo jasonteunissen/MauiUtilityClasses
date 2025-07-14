@@ -1,0 +1,29 @@
+
+$sz-breakpoint-mobile-portrait:     480px !default;  // shouldnt be used, mobile should be the default
+$sz-breakpoint-mobile-landscape:    576px !default;  // landscape phones
+$sz-breakpoint-tablet:              768px !default;  // tablets
+$sz-breakpoint-desktop:             992px !default;  // Large devices (laptops and up)
+$sz-breakpoint-desktop-large:       1200px !default; // Extra Large devices (desktops and up)
+
+$sz-gutter-padding:                 $sz-spacing-xl !default;
+
+
+$breakpoints:
+''     960px,
+-sm    $sz-breakpoint-mobile-portrait,
+-md    $sz-breakpoint-desktop,
+-lg    $sz-breakpoint-desktop-large,
+-xl    1400px,
+-xxl   100%,
+;
+
+
+@each $class, $size in $breakpoints { 
+  .gutters#{$class}{
+    max-width: #{$size};
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $sz-gutter-padding;
+    padding-left: $sz-gutter-padding;
+  }
+}

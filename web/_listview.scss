@@ -1,0 +1,28 @@
+
+$cl-bg-striped: rgba(0, 0, 0, 0.05) !default;
+
+
+
+.listview-striped > ul > li:nth-of-type(odd) {
+    background-color: $cl-bg-striped;
+  }
+
+
+// hide elements
+.hide-empty{
+    .mx-listview-empty{
+        display: none !important;
+    }
+}
+
+.hide-error{ //depricated
+    .mx-listview-empty{
+        display: none !important;
+    }
+}
+
+.hide-loadmore{
+    > .mx-listview-loadMore{
+        display: none !important;
+    }
+}

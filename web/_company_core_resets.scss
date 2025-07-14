@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;                     //makes border part of the box, and not make it grow cause that is wierd.
+}
+
+body{
+  line-height: $sz-text-lineheight-default;
+}
+
+
+.context-multiselect .selected .icn-context,
+input[type="checkbox"]:checked { 
+  @extend .fa-check;
+  &:before{
+    @extend .fas;
+    color: $cl-brand-primary;
+  }
+}

@@ -1,0 +1,398 @@
+$sz-padding-y-input            : var(--sz-spacing-xs) !default ; // top and bottom
+$sz-padding-x-input            : var(--sz-spacing-xs) !default ; // left and right
+$sz-borderradius-input         : var(--sz-spacing-xs) !default ; //input fields, checkboxes
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////
+/// Hide
+//////////////////////////////////////////////
+
+// Hide input to show validation only
+.hide-input { 
+  input {
+    display: none;
+  }
+
+  div.form-control-static { // Input reference selectors
+    display: none;
+  }
+}
+
+.hide-inputcontrolvalue{
+  input:disabled {
+    color: transparent;
+  }
+}
+
+//////////////////////////////////////////////
+/// Defaults
+//////////////////////////////////////////////
+
+.focus{
+  border: 1px solid $cl-brand-primary;
+}
+
+.form-control-static{
+  margin: 0;
+  padding: 0;
+}
+
+label, .control-label{
+  color: $cl-text-header;
+}
+
+
+input, select, textarea{
+  padding         : $sz-padding-y-input $sz-padding-x-input;
+  border-radius   : $sz-borderradius-input;
+  border          : 1px solid rgba(0,0,0,0.2) ;
+  color           : $cl-text-header;
+  width           : 100%;
+  font-family     : $font-family-base;
+  &:focus{ // sort of legacy, but not really
+    //@extend .focus;
+  }
+  &:focus-visible { // ussed for screen readers
+    @extend .focus;
+    outline: none;
+  }
+}
+
+//reference set selector same styling as inputs
+.mx-compound-control{
+  width: 100%;
+  //display: contents;
+}
+
+select{
+  appearance:none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 28px;
+}
+
+td{
+  input, select, textarea{
+    width: 100%;
+  }
+}
+
+
+//radio checbox button reset
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-appearance: none;   /* Add if not using autoprefixer */
+  appearance: none;
+  background-color: transparent; /* For iOS < 15 to remove gradient background */
+  margin: 0; /* Not removed via appearance */
+  padding: 0;
+  border: none;
+  &:focus{
+    outline: none;
+    outline-offset: 0px;
+  }
+}
+
+
+// Radio buttons
+
+.mx-radiobuttons{
+  &.inline{
+    .mx-radiogroup{
+      flex-direction: row;
+    }
+  }
+  .mx-radiogroup{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: $sz-spacing-default;
+    row-gap: calc(#{$sz-spacing-default} * 0.25);
+    .radio{
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: calc(#{$sz-spacing-default} * 0.5);
+      position: relative;
+      input{
+        width: 13px;
+      }
+      input, label{
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+
+
+.context-singleselect .icn-context,
+input[type="radio"] {
+  width:            24px !important;
+  height:           24px !important;
+  border:           1px solid $cl-border-default;
+  background-color: $cl-white;
+  border-radius:    24px;
+  display:          flex;
+  justify-content:  center;
+  align-items:      center;
+ 
+
+  position:         relative;
+  margin-bottom:    calc(var(--sz-spacing-default) * 0.25);
+  
+
+}
+
+.context-singleselect .selected .icn-context,
+.context-singleselect.selected .icn-context,
+input[type="radio"]:checked {
+  &:before{
+    content: '';
+    width:            10px !important;
+    height:           10px !important;
+    background-color: $cl-brand-primary;
+    border-radius:    24px;
+    position:         absolute;
+  }
+}
+
+
+
+
+
+
+// Checkbox
+
+
+.mx-checkbox.label-after.form-group{ //checkbox
+  flex-direction:   row;
+  gap:              calc(#{$sz-spacing-default} * 0.5);
+  align-items:      center;
+  label, input[type=checkbox]{
+    margin:         0;
+    color:          var(--cl-text-body);
+    font-weight:    400;
+    cursor:         pointer;
+  }
+}
+
+.context-multiselect .icn-context, input[type="checkbox"] {
+  width:            24px !important;
+  height:           24px !important;
+  border:           1px solid $cl-border-default;
+  background-color: $cl-white;
+  border-radius:    3px;
+  display:          flex;
+  justify-content:  center;
+  align-items:      center;
+  margin-bottom:    calc(var(--sz-spacing-default) * 0.25) !important;
+
+}
+
+.context-multiselect, .context-singleselect{
+  > ul > li > div > div > div {
+    gap: $sz-spacing;
+  }
+}
+
+
+
+
+
+
+.context-multiselect .selected .icn-context,
+.context-multiselect.selected .icn-context,
+input[type="checkbox"]:checked { //selected icn moved to company_core_reset
+  //@extend .fa-check;
+}
+
+
+
+
+
+
+
+.mx-compound-control{ // mx-datepicker, Image uploader
+  position: relative;
+  input{
+    width: 100%;
+  }
+  .btn{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    //width: 60px; //messes with image uploader and cal widget
+    background-color: transparent;
+    border-color: transparent;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    gap: 0;
+    justify-content: center;
+  }
+  input:focus + .btn{
+    background-color: $cl-brand-primary;
+    color: $cl-white;
+  }
+}
+
+
+
+
+//////////////////////////////////////////////
+/// Form Vertical
+//////////////////////////////////////////////
+
+.form-vertical{
+  .form-group{
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control-static{
+    min-height: auto;
+  }
+}
+
+.form-vertical .form-group.mx-checkbox.label-after input[type=checkbox]{
+  display: flex;
+}
+
+
+
+
+
+//////////////////////////////////////////////
+/// Form Horizontal
+//////////////////////////////////////////////
+
+
+.form-horizontal .form-group{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-horizontal .form-group.no-columns{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.form-horizontal{
+  label, .control-label{
+    margin: 0;
+    padding: 0 !important;
+    display: inline-block;
+    max-width: 100%;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+.form-horizontal{
+  .form-control-static{
+    min-height: auto;
+  }
+  .form-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $sz-spacing-default;
+    label{
+      padding: 0;
+      margin: 0;
+    }
+    input, select{
+      width: 100%;
+    }
+  }
+  .radio{
+    padding: 0;
+    min-height: auto;
+  }
+}
+
+
+.form-horizontal{
+  .label-after.form-group{ //checkbox
+    > div{
+      display: contents;
+      flex: auto;
+      justify-content: flex-start;
+
+      input{
+        width: auto;
+      }
+    }
+  }
+}
+
+.form-horizontal{
+  .label-after.form-group{ //checkbox
+    > div{
+      display: contents;
+      flex: auto;
+      justify-content: flex-start;
+
+      input{
+        width: auto;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.row-right{
+    .form-group{
+        margin-bottom: 0;
+    }
+}
+
+
+// form horizontal sizes
+
+$columns: 12;
+@for $i from 1 through $columns {
+  .form-horizontal {
+    .col-sm-#{$i}{
+      flex: #{$i} 0 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $sz-breakpoint-mobile-portrait) {
+  .form-horizontal {
+    .form-group{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+}
+
+
+.input-required{
+  input{
+    border-color: $cl-danger-500;
+  }
+}
+

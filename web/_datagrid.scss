@@ -1,0 +1,14 @@
+// useful for csv export
+.datagrid-buttonsonly{
+  .mx-grid-content, .mx-grid-searchbar, .mx-grid-pagingbar {
+      display: none;
+  }
+  .mx-grid-controlbar, .mx-grid-toolbar{
+      display: contents;
+  }
+} 
+
+
+.mx-grid table{
+  width: 100%;
+}

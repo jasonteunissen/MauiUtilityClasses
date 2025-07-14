@@ -1,0 +1,377 @@
+@import '../../../theme/web/custom-variables';
+
+
+
+// Base
+// these are some basic settings that are not likely to change with different 'flavours'
+// if you want to choose a 'flavour' add it to your company core, the flavours can be identified because they start with '_cc_'
+
+@import 'avatar';               //always handy to have this avatar class.
+@import 'buttons';              // turns buttons into flex for icon support.
+@import 'card';                 // bare minimum that cards panels and pages need to have.
+@import 'dataview';             // 
+@import 'datagrid';             // 
+@import 'designsystem';         // elements to help test or display design system elements.
+@import '_depricated/dropdown'; // !!! depricate this in MX10.
+@import 'foreach';              // some quick for-loops that can be reused.
+@import 'gutters';              // 
+@import 'grid';                 // dynamic grids.
+@import 'helper_classes';       // Basic utility classes, for padding/margins/borders.
+@import 'helper_rowcol';        // flex/gap helper classes.
+@import 'helper_scr';           // very niche helper classes that are responsive.
+@import 'helper_widthheight';   // not often used, but always handy to have.
+@import 'inputs';               // big cleanup of inputs.
+@import 'listview';             // 
+
+
+
+
+
+@import 'navigationtree';
+@import 'tag';
+@import 'widget_autocomplete';
+@import "colormapping";
+
+
+
+
+
+
+
+//labels
+.label{
+  justify-self: flex-start;
+}
+
+
+.label, .badge{
+  align-self: flex-start;
+}
+
+
+.col-center{
+  .mx-link{
+    text-align: center;
+    align-self: center;
+  }
+}
+
+.mx-link{
+  align-self: auto;
+}
+
+
+///////
+/// colomns and button alignments
+/// 
+
+
+.auto-layout{
+  > .mx-link, > .btn{
+    justify-content: flex-end;
+    align-self: flex-start;
+  }
+}
+
+.col-center{
+  > .btn, > .mx-link{
+    justify-content: center;
+    align-self: center;
+  }
+}
+
+.col-right{
+  > .btn, > .mx-link{
+    justify-content: center;
+    align-self: flex-end;
+  }
+}
+
+.content{
+  width: 100%;
+}
+
+.actionbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: $sh-border-default;
+  padding-top: $sz-spacing-default;
+}
+
+.mauipopup.center{
+  .actionbar{
+    padding: calc(#{$sz-spacing-default} * 0.5) $sz-spacing-default;
+  }
+}
+
+
+//actionbar in popup bottom sticky
+.mauipopup .col-footer .actionbar{
+  padding: $sz-spacing-default;
+  }
+
+.img-wrap.img-bg{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 400px;
+  width: 100%;
+  &::before {
+    content: '';
+    background-image: linear-gradient(to bottom, rgba($cl-bg-body, 0) 0, rgba($cl-bg-body, 1));
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+
+
+
+
+
+.mx-grid-search-input{
+  .mx-selectbox{
+    padding: 12px 20px; //line 52 in inputs.scss needs to be changed to variable
+    border-radius: var(--sz-borderradius-inputs);
+    width: 100%;
+    border: $sh-border-default;
+    background-color: $cl-white;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    text-align: left;
+
+    // appearance: none;
+    // background-image: url(data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e);
+    // background-repeat: no-repeat;
+    // background-position: right 1rem center;
+    // background-size: 1em;
+  }
+}
+
+.mx-dropdown.dropdown-menu{
+  li{
+    display: flex;
+
+    input{
+      margin-right: calc(#{$sz-spacing-default} * 0.25);
+    }
+  }
+}
+
+
+
+
+// alerts
+.mx-validation-message, .alert{
+  padding: $sz-spacing;
+}
+
+
+
+
+
+
+
+
+.mx-dataview-controls .mx-button, .mx-dataview-controls .mx-button:last-child{
+  margin: 0;
+}
+
+.lsg-color{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border: $sh-border-default;
+}
+
+.grid-input {
+  //border                  : 1px solid red;
+  row-gap                 : $sz-spacing-xs;
+  column-gap              : $sz-spacing-sm;
+  position: relative;
+
+
+  display: grid;
+  grid-template-areas:
+  "top-left    top-right"
+  "bottom       bottom";
+  grid-template-columns:  auto 1fr; //add side nav width here
+  grid-template-rows:     1fr   ; //add topnav height here
+
+  .form-group{
+    display: contents;
+  }
+  .control-label,
+  label{
+    grid-area: top-left;
+    margin-bottom: 0;
+  }
+
+  .widget-tooltip{
+    grid-area: top-right;
+  }
+
+  input{
+    grid-area: bottom;
+  }
+}
+
+.widget-tooltip{
+  width: max-content;
+}
+
+
+.auto-layout.mx-layoutgrid{
+  > .row > div{
+    display: flex;
+    flex-direction: column;
+    gap: $sz-spacing;
+  }
+}
+
+// simple checkbox 
+.checkboxMainContainer {
+  .control-label {
+    display: none;
+  }
+  > div{
+    display: contents;
+  }
+  .checkbox{ // removed from bootstrap
+    // cursor: pointer;
+    label{
+      display: flex;
+      gap: $sz-spacing-sm;
+      cursor: pointer;
+    }
+  }
+  input[type="checkbox"]{
+    margin: 0;
+  }
+}
+
+
+
+
+
+// COMBOBOX
+.widget-combobox{
+  //border: 1px solid red;
+}
+
+.widget-combobox-input-container{
+  display: flex;
+  
+  padding         : $sz-spacing-y-input $sz-spacing-x-input;
+
+  border-radius   : $sz-borderradius-inputs;
+  border          : 1px solid rgba(0,0,0,0.2) ;
+  color           : $cl-text-header;
+  width           : 100%;
+  font-family     : $font-family-base;
+  background-color: $cl-white;
+  
+
+}
+
+.widget-combobox-input{
+  //background-color: blue;
+  z-index: 1;
+}
+
+.widget-combobox-placeholder-text{
+  display             : flex !important;
+  align-items         : center;
+  background-color    : $cl-white;
+  font-size           : $sz-text-size-default;
+  line-height         : $sz-text-lineheight-default;
+}
+
+.widget-combobox-caption-text{
+
+}
+
+.widget-combobox-menu{
+  //background-color: red;
+}
+.widget-combobox-menu.widget-combobox-menu-hidden{
+  
+}
+
+.widget-combobox-selected-items{
+  gap: $sz-spacing-sm;
+}
+
+.widget-combobox-clear-button {
+  padding-right: $sz-spacing-xs;
+}
+
+.widget-combobox-down-arrow{
+  padding-left: $sz-spacing-xs;
+}
+
+.widget-combobox-selected-item {
+  color               : #000; //Atlas
+  //font-size           : $sz-text-size-sm; //Atlas
+  //line-height         : 1.334; //Atlas
+  display             : inline-flex; //Atlas
+  border-radius       : 26px; //Atlas
+  justify-content     : center; //Atlas
+  padding             : 2px 10px; //Atlas
+  flex-wrap           : wrap; //Atlas
+  align-items         : center; //Atlas
+  margin              : 0px; //Atlas
+  gap                 : $sz-spacing-sm; //Atlas
+  background-color    : $cl-active-50; //Atlas
+
+  z-index: 1;
+
+  span{
+    font-size           : $sz-text-size-sm; //Atlas
+    line-height         : $sz-text-lineheight-sm;
+  }
+}
+
+
+
+//new variables
+
+.alert{
+  border-radius: var(--sz-borderradius-alert);
+}
+
+///timeline
+
+
+.widget-timeline-events-wrapper ul{
+    flex: 1;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    li{ //fixes when words are extremely long
+      word-wrap: break-word;
+      text-wrap: wrap;
+      overflow-wrap: break-word;
+      word-break: break-all;
+    }
+}
+
+.widget-timeline-event{
+  // flex: 1;
+  // position: relative;
+  // margin-left: -1px;
+  // padding: 0 24px 24px 24px;
+  // margin-bottom: var(--sz-spacing-default);
+
+}
+
+//chang

@@ -1,0 +1,98 @@
+@use  '../../companycore/web/fontawesome/fontawesome.scss';
+
+
+//////////////////////////////////////////////////////////
+/// Default color loops
+//////////////////////////////////////////////////////////
+
+$defaults:
+primary    ,
+secondary  ,
+accent     ,
+success    ,
+warning    ,
+danger     ,
+clickable  ,
+active     ,
+info       ,
+inverse    ,
+default    ,
+text       ,
+header     ,
+;
+
+@each $class in $defaults { 
+    // helper classes
+    .bg-#{$class}{
+        background-color: var(--cl-#{$class}-50) !important;
+    }
+    .text-#{$class}{
+        color: var(--cl-#{$class}-500) !important;
+    }
+    .context-#{$class}{
+        .color-context{ // good for changing color of text based on context
+            color: var(--cl-#{$class}-500) !important;
+        }
+        td{ //changes color of a table row in a listview
+            background-color: var(--cl-#{$class}-50) !important;
+        }
+        &.icontextpair{
+            .mx-text, .icn-context{
+                color: var(--cl-#{$class}-500);
+              }
+        }
+    }
+
+    // alerts
+    .alert-#{$class}{
+                   color: var(--cl-#{$class}-900);
+            border-color: var(--cl-#{$class}-500);
+        background-color: var(--cl-#{$class}-50);
+        span, h1, h2, h3, .icn-context{
+            color: var(--cl-#{$class}-900);
+        }
+    }
+}
+
+
+
+//////////////////////////////////////////////////////////
+// Active template
+//////////////////////////////////////////////////////////
+
+$amountOfLinks: 20;
+@for $i from 1 through $amountOfLinks {
+  .tabs.active-#{$i} > *:nth-child(#{$i}){
+    
+  }
+}
+
+
+//////////////////////////////////////////////////////////
+// Fake RadioButton 
+//////////////////////////////////////////////////////////
+
+// Active-1 Radio workaround using links to simulate radio buttons
+.filter-radio{
+  a{
+      @extend .fa-circle;
+      &::before{
+          color: $cl-clickable;
+          @extend .fa;
+      }
+  }
+}
+
+$amountOfLinks: 20;
+@for $i from 1 through $amountOfLinks {
+    //Active
+    .filter-radio.active-#{$i} a:nth-child(#{$i}) {
+        @extend .fa-circle-check;
+        &::before {
+            color: $cl-active;
+        }
+    }
+}
+
+
+

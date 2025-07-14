@@ -1,0 +1,128 @@
+$spacing-medium             : $sz-spacing         !default;
+$spacing-text               : $sz-spacing-sm      !default;
+$spacing-scrollbaroffset    : 15px                !default;
+$sh-boxshadow-400           : $sh-boxshadow-500   !default;
+
+
+
+////////////////////////////////// 
+//////// Padding & Margin
+////////////////////////////////// 
+
+$selectors:     padding,
+                margin;
+                
+$directions:    ''          ''              $spacing-medium,
+                -none       ''              0,
+                -t-none     -top            0,
+                -r-none     -right          0,
+                -b-none     -bottom         0,
+                -l-none     -left           0,
+                -t          -top            $spacing-medium,
+                -r          -right          $spacing-medium,
+                -b          -bottom         $spacing-medium,
+                -l          -left           $spacing-medium,
+                -h          -left           $spacing-medium,
+                -h          -right          $spacing-medium,
+                -v          -top            $spacing-medium,
+                -v          -bottom         $spacing-medium,
+                -t-a        -top            auto,
+                -r-s        -right          $spacing-scrollbaroffset,
+                -t-t        -top            $spacing-text,
+                -r-t        -right          $spacing-text,
+                -l-t        -left           $spacing-text,
+                -b-t        -bottom         $spacing-text,
+                -text       ''              $spacing-text,
+                -h-text     -left           $spacing-text,
+                -h-text     -right          $spacing-text,
+                -v-text     -top            $spacing-text,
+                -v-text     -bottom         $spacing-text;
+
+@each $selector in $selectors{
+    @each $direction in $directions{
+        .#{nth($selector, 1)}#{nth($direction, 1)}{
+            #{nth($selector, 1)}#{nth($direction, 2)}: #{nth($direction, 3)} !important;
+        }
+    }
+}
+
+
+
+
+
+
+
+////////////////////////////////// 
+//////// text
+////////////////////////////////// 
+
+.text-sub{
+  opacity: 0.5;
+}
+
+
+////////////////////////////////// 
+//////// state
+////////////////////////////////// 
+
+.disabled, [disabled] {
+  cursor: not-allowed;
+  opacity: 0.8;
+  box-shadow: none;
+  
+}
+
+input[disabled], input[type=checkbox][disabled] {
+  background-color: rgba(0,0,0,0.065);
+}
+
+
+
+
+
+////////////////////////////////// 
+//////// Borders
+////////////////////////////////// 
+
+.border{
+  border: 1px solid $border-color-default;
+}
+
+.border-top{
+  border-top: 1px solid $border-color-default;
+}
+
+.border-bottom{
+  border-bottom: 1px solid $border-color-default;
+}
+
+.border-left{
+  border-left: 1px solid $border-color-default;
+}
+
+.border-right{
+  border-right: 1px solid $border-color-default;
+}
+
+// shadows
+
+.shadow-300{
+  box-shadow: $sh-boxshadow-300;
+}
+.shadow-400{
+  box-shadow: $sh-boxshadow-400;
+}
+.shadow-500{
+  box-shadow: $sh-boxshadow-500;
+}
+.shadow-700{
+  box-shadow: $sh-boxshadow-700;
+}
+
+////////////////////////////////// 
+//////// troubleshooting classes
+////////////////////////////////// 
+
+.displaynone{
+  display: none !important;
+}

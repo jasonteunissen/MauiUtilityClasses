@@ -1,0 +1,148 @@
+
+
+
+
+.mx-calendar{
+    z-index: 1010;
+    background-color: var(--cl-backgroundcolor-onbody);
+    //border: $sh-border-default;
+    padding:    $sz-spacing $sz-spacing-xl;
+    box-shadow: $sh-boxshadow-500;
+    border-radius: 4px;
+
+    table{
+        table-layout:   fixed;
+        border-collapse: separate;
+        border-spacing: 4px;
+    }
+
+    table tr:first-child td {
+        border: none;
+    }
+    
+    tr{
+        max-height: 32px !important;
+        overflow: hidden;
+    }
+
+    td, th{
+        border: none;
+        padding: 6px 11px;
+        text-align: center;
+        border-radius: 4px;
+        overflow: hidden;
+        width: 32px;
+    }
+
+    td{
+        cursor: pointer;
+        font-weight: 600;
+        &:hover{
+            background-color: $cl-primary-50;
+        }
+    }
+
+    .mx-calendar-day-month-previous, .mx-calendar-day-month-next{
+        opacity: 0.5;
+    }
+
+    .mx-calendar-month-label{
+        font-weight: 600;
+    }
+    th{
+        font-size: 0;
+        opacity: 0.5;
+    }
+    th:first-letter{
+        font-size: 12px;
+    }
+    tr{
+        font-size: 12px;
+    }
+    .mx-calendar-day-today{
+        background-color: $cl-primary-30;
+    }
+
+    .mx-calendar-day-selected{
+        color: #fff;
+        background-color: $cl-primary-500;
+    }
+
+
+
+    .mx-calendar-month-spacer {
+        position: relative;
+        height: 0px;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+
+
+
+
+
+
+    .mx-calendar,
+    .mx-calendar-month-dropdown {
+        user-select: none;
+    }
+
+    // date top and buttons
+    .mx-calendar-month-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+       // margin: 0 3px 10px 3px;
+      // padding: 6px 11px;
+    }
+
+    .mx-calendar-month-spacer{
+        display: none;
+    }
+
+    .mx-calendar-month-dropdown{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        //border: 1px solid red;
+        gap: 10px;
+    }
+
+    .mx-calendar-month-dropdown-options {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--cl-backgroundcolor-onbody);
+        border: $sh-border-default;
+        padding: 0 10px;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .mx-calendar-month-next,
+    .mx-calendar-month-previous,
+    .mx-calendar-month-dropdown {
+        border: 0;
+        cursor: pointer;
+        background: transparent;
+        //padding: 6px 11px;
+    }
+
+
+    .mx-calendar-year-switcher{
+        display: flex;
+        //border: 1px solid red;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    .mx-calendar-year-selected{
+        font-weight: 600;
+    }
+}

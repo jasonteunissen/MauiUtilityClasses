@@ -1,0 +1,36 @@
+
+
+// 100 - 2000 = px
+@for $i from 1 through 20 {
+  .w-#{$i}00{
+      width: #{$i}00px;
+  }
+  .maxw-#{$i}00{
+      max-width: #{$i}00px;
+  }
+  .minw-#{$i}00{
+      min-width: #{$i}00px;
+  }
+  
+  .h-#{$i}00{
+      height: #{$i}00px;
+  }
+  .maxh-#{$i}00{
+      max-height: #{$i}00px;
+  }
+  .minh-#{$i}00{
+      min-height: #{$i}00px;
+  }
+}
+
+
+//  1 = 100%
+//  2-99 = %
+.w-1{
+  width: 100%;
+}
+
+.h-1{
+  height: 100%;
+  overflow-y: auto;
+}

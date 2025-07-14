@@ -1,0 +1,24 @@
+$sz-avatar-default    : 40px !default;
+
+.avatar, .react-gravatar{
+  overflow            : hidden;
+  display             : flex;
+  justify-content     : center;
+  align-items         : center;
+  flex-grow           : 0;
+  flex-shrink         : 0;
+  width               : $sz-avatar-default;
+  height              : $sz-avatar-default;
+  border-radius       : 50%;
+  img{
+    width             : 100%;
+    height            : 100%;
+  }
+}
+
+.card{ //makes avatars smaller when inside a card.
+  .avatar, .react-gravatar{
+    height            : calc(#{$sz-spacing-default} * 1.5);
+    width             : calc(#{$sz-spacing-default} * 1.5);
+  }
+}

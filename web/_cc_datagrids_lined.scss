@@ -1,0 +1,164 @@
+//Entidad lined tables
+
+
+//tables
+table,
+.widget-datagrid .table {
+    table-layout    : fixed;
+    width           : 100%;
+    //border-collapse : separate; //fixes a weird issue where empty datagrids get a darkline if rgba is used
+    border-collapse : collapse;
+    border-spacing  : 0;
+    background-color: transparent;
+}
+
+.mx-calendar{ //otherwise cal widget gets extra qide
+    table{
+        width: auto;
+    }
+}
+
+
+td,
+th,
+.mx-datagrid th,
+.mx-datagrid td,
+.table .th,
+.table .td {
+    padding            : $sz-spacing;
+    vertical-align    : bottom;
+    border            : $sh-border-default;
+    border-right      : none;
+    border-left       : none;
+    //overflow          : hidden;
+    position          : relative;
+    background-color  : transparent;
+    word-wrap: break-word;
+    //word-break: break-all;
+}
+
+
+// Selected
+.mx-datagrid tr.selected,
+.mx-listview .selected .tr{
+    background-color: $cl-primary-30;
+}
+
+//tables
+.mx-datagrid{
+    td{
+        cursor: pointer;
+    }
+}
+
+
+.mx-datagrid,
+table {
+    td {
+        border-top: none;
+    }
+}
+
+table {
+    tr:first-child td {
+        //if there is no header, the first td will get a line
+        border-top: $sh-border-default;
+    }
+}
+
+.mx-datagrid table tr:first-child td {
+    border-top: none;
+}
+
+.mx-datagrid th{ // cant use flex here, because we need it to be display: table-cell.
+    cursor: pointer;
+    .mx-datagrid-sort-icon{
+        display: inline;
+        float: right;
+    }
+    .mx-datagrid-head-caption{
+        display: inline;
+        // float: left;
+    }
+}
+
+.mx-datagrid th:before{ // to match the resizer of DG2
+    content             : '';
+    background-color    : rgba(0,0,0,0.05);
+    width               : 1px;
+    height              : calc(100% - $sz-spacing - $sz-spacing);
+    position            : absolute;
+    right               : 0;
+    top                 : $sz-spacing;
+}
+
+//datagrid2
+.table .th,
+.table .td {
+    border-bottom: none;
+}
+
+.table .tr:last-child .td {
+    border-bottom: $sh-border-default;
+}
+
+.table .th .column-resizer .column-resizer-bar{
+    background-color: rgba(0,0,0,0.05);
+    width: 1px;
+}
+
+//tables in listviews
+.mx-listview ul li table {
+    th,
+    td {
+        border-top: none;
+    }
+}
+
+// header styles
+.table .th .column-header span, .mx-datagrid-head-caption{
+    color: $cl-header-500;
+    font-weight: 600;
+    font-size: $sz-text-size-default;
+}
+
+//// bars
+.datagrid-bars{
+    .table .table-content{
+        row-gap: $sz-spacing;
+        border-collapse : separate;
+    }
+    td,
+    // th,
+    // .mx-datagrid th,
+    .mx-datagrid td,
+    // .table .th,
+    .table .td {
+        // padding            : $sz-spacing;
+        // vertical-align    : bottom;
+        // border            : $sh-border-default;
+        // border-right      : none;
+        // border-left       : none;
+        // //overflow          : hidden;
+        // position          : relative;
+        background-color  : $cl-white;
+        border: $sh-border-default;
+        border-left: none;
+        border-right: none;
+        &:first-child{
+            border-left: $sh-border-default;
+            border-radius: 4px  0 0 4px;
+
+        }
+        &:last-child{
+            border-right: $sh-border-default;
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    th,
+    .mx-datagrid th,
+    .table .th{
+        padding: 0;
+    }
+}
